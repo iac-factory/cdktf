@@ -9,3 +9,5 @@ export const Application = new Proxy(App, {});
 Object.setPrototypeOf(Application.prototype, App);
 
 export default Application;
+
+export type Application = App;

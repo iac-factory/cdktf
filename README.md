@@ -17,14 +17,16 @@ import { Stack } from "@iac-factory/cdktf";
 
 import { Container, Image, DockerProvider } from "@cdktf/provider-docker";
 
-new DockerProvider(construct, "docker-provider", {});
+const Construct = Stack("example");
 
-const image = new Image(construct, "nginx-image", {
+new DockerProvider(Construct, "docker-provider", {});
+
+const image = new Image(Construct, "nginx-image", {
     name: "nginx:latest",
     keepLocally: false,
 });
 
-new Container(construct, "nginxContainer", {
+new Container(Construct, "nginx-container", {
     name: "tutorial",
     image: image.latest,
     ports: [
@@ -35,7 +37,9 @@ new Container(construct, "nginxContainer", {
     ],
 });
 
-construct.source.synth();
+/*** npm run synth || npx cdktf@latest -- synth */
+
+Construct.source.synth();
 ```
 
 ## Design Philosophy ##
@@ -66,5 +70,5 @@ also ensuring of backwards compatability.***
 If the client can only initialize `Stack` via `<Function> (input: string) ()`, and the
 return type always remains a `IConstruct`, I now have the capability to extend the
 `@iac-factory/cdktf` context as much as needed. For example, I can add default tags
-that then get propagated to all downstream client packages, as well as provide special
+(not only in the context of `aws`) that then get propagated to all downstream client packages, as well as provide special
 terraform backend(s) by default.

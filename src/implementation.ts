@@ -2,17 +2,16 @@
  * BSD 3-Clause License - Open Source
  */
 
-import { Construct }      from "constructs";
 import { TerraformStack } from "cdktf";
+import { Application }    from ".";
 
-import { Application } from ".";
-
-export const Stack = (name: string) => {
-    const Instance = new Application();
-    const Composition = new Proxy(TerraformStack, {});
+export const Stack = (name: string, source?: Application) => {
+    const Instance = ( source ) ? source : new Application();
+    const Composition = new Proxy( TerraformStack, {} );
 
     const Implementation = new ( class extends Composition {
-        source = new Proxy(Instance, {});
+        source = new Proxy( Instance, {} );
+
         constructor(name: string, scope: Construct = new Composition( Instance, name )) {
             super( scope, name );
         }
@@ -20,5 +19,7 @@ export const Stack = (name: string) => {
 
     return { ... Implementation };
 };
+
+import type { Construct } from "constructs";
 
 export default Stack;
