@@ -1,0 +1,26 @@
+{
+    "name": "@iac-factory/cdktf",
+    "version": "0.1.7",
+    "main": "index.js",
+    "author": "Jacob B. Sanders <jacob.sanders@cloudhybrid.io> (https://github.com/iac-factory)",
+    "repository": "git+https://github.com/iac-factory/cdktf-factory",
+    "peerDependencies": {
+        "cdktf": "^0.11.2",
+        "constructs": "^10.1.38"
+    },
+    "optionalDependencies": {
+        "@cdktf/provider-docker": "*",
+        "@iac-factory/cdktf": "."
+    },
+    "devDependencies": {
+        "@types/node": "*",
+        "typescript": "*"
+    },
+    "scripts": {
+        "release": "tsc && npm publish ./distribution"
+    },
+    "publishConfig": {
+        "access": "public",
+        "tag": "latest"
+    }
+}
