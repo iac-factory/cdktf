@@ -11,7 +11,7 @@ export function Docker(construct = Stack("stack")) {
         keepLocally: false,
     });
 
-    new Container(construct, "nginxContainer", {
+    new Container(construct, "nginx-container", {
         name: "tutorial",
         image: image.latest,
         ports: [
@@ -22,7 +22,7 @@ export function Docker(construct = Stack("stack")) {
         ],
     });
 
-    return construct.source.synth();
+    return construct;
 }
 
-Docker();
+Docker().source.synth();

@@ -4,10 +4,13 @@
 
 import { App } from "cdktf";
 
-export const Application = new Proxy(App, {});
+export const Application = new Proxy( App, {} );
 
-Object.setPrototypeOf(Application.prototype, App);
+Object.setPrototypeOf( Application.prototype, App );
 
-export default Application;
-
-export type Application = App;
+/*** Deconstruct Private + Protected Attributes */
+export type Application = App & { source: ( ( {
+    [Property in keyof App]: App[Property]
+} & typeof Application & typeof App ) ) & {
+    source: { synth: App["synth"] }
+} }

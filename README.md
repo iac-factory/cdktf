@@ -53,7 +53,7 @@ want the fastest, easiest means to define their infrastructure, but don't care t
 learn straight `terraform` as their package is purely `typescript`.
 
 The first, perhaps most obvious benefit is the use of only a global namespace.
-There exists no `class` or `Function` nested namespaces. 
+There exists no `class` or `Function` nested namespaces.
 
 I then remove the requirement of using both `IContruct` types: `TerraformStack` and `App`. At first when working
 with `cdktf`, I actually experienced some runtime errors when working with more than

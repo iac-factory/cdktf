@@ -12,13 +12,15 @@ export const Stack = (name: string, source?: Application) => {
     const Implementation = new ( class extends Composition {
         source = new Proxy( Instance, {} );
 
-        constructor(name: string, scope: Construct = new Composition( Instance, name )) {
+        constructor(name: string, scope: Construct = new Composition( Instance as Construct, name )) {
             super( scope, name );
         }
     } )( name );
 
-    return { ... Implementation };
+    return { ... Implementation } as const;
 };
+
+export type Stack = typeof Stack & { prototype: object };
 
 import type { Construct } from "constructs";
 
