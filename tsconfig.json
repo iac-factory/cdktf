@@ -38,5 +38,6 @@
         "sourceMap": true,
         "composite": true,
         "diagnostics": true
-    }, "include": ["**/*.json", "**/*.ts"]
+    }, "include": ["**/*.json", "**/*.ts"],
+    "exclude": ["examples"]
 }

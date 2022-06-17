@@ -1,4 +1,4 @@
-# [`@iac-factory/cdktf`](https://github.com/iac-factory/cdktf-factory) #
+# [`cdktf-factory`](https://github.com/iac-factory/cdktf-factory) #
 
 A functional wrapper for `constructs` & `cdktf`.
 
@@ -13,7 +13,7 @@ npm i cdktf-factory
 ***Example*** - Docker
 
 ```typescript
-import { Stack } from "@iac-factory/cdktf";
+import { Stack } from "cdktf-factory";
 
 import { Container, Image, DockerProvider } from "@cdktf/provider-docker";
 
@@ -69,6 +69,6 @@ also ensuring of backwards compatability.***
 
 If the client can only initialize `Stack` via `<Function> (input: string) ()`, and the
 return type always remains a `IConstruct`, I now have the capability to extend the
-`@iac-factory/cdktf` context as much as needed. For example, I can add default tags
+`cdktf-factory` context as much as needed. For example, I can add default tags
 (not only in the context of `aws`) that then get propagated to all downstream client packages, as well as provide special
 terraform backend(s) by default.

@@ -15,7 +15,7 @@
         "upgrade:next": "npm i cdktf@next cdktf-cli@next"
     },
     "dependencies": {
-        "@iac-factory/cdktf": "^0.2.18",
+        "cdktf-factory": "^1.1.1",
         "@cdktf/provider-docker": "^0.8.22"
     },
     "devDependencies": {

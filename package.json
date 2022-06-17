@@ -1,6 +1,6 @@
 {
-    "name": "@iac-factory/cdktf",
-    "version": "0.2.20",
+    "name": "cdktf-factory",
+    "version": "1.1.2",
     "main": "index.js",
     "author": "Jacob B. Sanders <jacob.sanders@cloudhybrid.io> (https://github.com/iac-factory)",
     "repository": "git+https://github.com/iac-factory/cdktf-factory",
@@ -13,6 +13,7 @@
         "typescript": "*"
     },
     "scripts": {
+        "prepublishOnly": "tsc --build tsconfig.json",
         "release": "tsc && npm publish ./distribution"
     },
     "publishConfig": {
