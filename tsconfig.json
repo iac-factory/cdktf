@@ -12,7 +12,6 @@
         "module": "CommonJS",
         "target": "ES6",
         "moduleResolution": "Node",
-        "outDir": "distribution",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
