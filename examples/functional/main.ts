@@ -1,4 +1,4 @@
-import { Stack } from "@iac-factory/cdktf";
+import { Stack } from "cdktf-factory";
 
 import { Container, Image, DockerProvider } from "@cdktf/provider-docker";
 
