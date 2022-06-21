@@ -1,4 +1,12 @@
+*.ts
+*/**.ts
+
+examples
+examples/*
+examples/**
+
+tsconfig.tsbuildinfo
+
 !**/*.js
-!**/*.ts
 !**/*.map
 !**/*.d.*

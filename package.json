@@ -1,6 +1,6 @@
 {
     "name": "cdktf-factory",
-    "version": "1.1.22",
+    "version": "1.1.27",
     "main": "index.js",
     "types": "index.d.ts",
     "author": "Jacob B. Sanders <jacob.sanders@cloudhybrid.io> (https://github.com/iac-factory)",
