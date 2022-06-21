@@ -10,6 +10,41 @@ npm i cdktf-factory
 
 ### Implementation ###
 
+***Example*** - NPM Deployment Package
+
+```typescript
+import * as Path from "path";
+
+import { Stack, Asset, Output, Reader } from "cdktf-factory";
+
+const Name = "files";
+const Construct = Stack( Name );
+
+const assets = new Asset( Construct, "node-modules", {
+    path: "./node_modules",
+    type: 1
+} );
+
+new Output( Construct, "hash", {
+    value: assets.assetHash
+} );
+
+const files = Object.create( {} );
+Reader.read( assets.fileName ).forEach( (descriptor) => {
+    const relative = Path.relative( process.cwd(), descriptor.path );
+    if ( descriptor.properties.file ) files[ relative ] = {
+        path: relative,
+        name: descriptor.name
+    };
+} );
+
+new Output( Construct, "dependencies", {
+    value: JSON.stringify( files, null, 4 )
+} );
+
+Construct.source.synth();
+```
+
 ***Example*** - Docker
 
 ```typescript

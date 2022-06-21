@@ -3,12 +3,12 @@
     "display": "@iac-factory/tsc-configuration",
     "ts-node": {
         "experimentalResolverFeatures": true,
-        "preferTsExts": true,
-        "transpileOnly": true
+        "preferTsExts": false,
+        "transpileOnly": false
     },
     "compilerOptions": {
         "rootDir": ".",
-        "lib": ["ES6", "ESNext"],
+        "lib": ["ESNext"],
         "module": "CommonJS",
         "target": "ES6",
         "moduleResolution": "Node",
@@ -38,5 +38,5 @@
         "composite": true,
         "diagnostics": true
     }, "include": ["**/*.json", "**/*.ts"],
-    "exclude": ["examples"]
+    "exclude": ["examples", "**/*.out", "cdktf"]
 }
