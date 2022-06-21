@@ -5,8 +5,8 @@
 import { TerraformStack } from "cdktf";
 import { Application }    from ".";
 
-export const Stack = (name: string, source?: Application) => {
-    const Instance = ( source ) ? source : new Application();
+export const Stack = (name: string, source?: typeof Application) => {
+    const Instance = ( source ) ? source : Application;
     const Composition = new Proxy( TerraformStack, {} );
 
     const Implementation = new ( class extends Composition {
